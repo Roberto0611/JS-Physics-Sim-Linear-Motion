@@ -9,12 +9,19 @@ body {
     background-color: #f4f4f4;
 }
 
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .container {
     text-align: center;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 form {
@@ -45,8 +52,19 @@ button:hover {
     background-color: #45a049;
 }
 
-#result {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
+.animation-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.animated-object {
+    width: 30px;
+    height: 30px;
+    background-color: #3498db;
+    border-radius: 50%;
+    margin: 0 auto; /* Centra el objeto horizontalmente dentro del contenedor */
 }

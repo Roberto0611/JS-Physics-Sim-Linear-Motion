@@ -38,6 +38,7 @@ function calculateDistance(){
     console.log('Calculated Distance is: ' + distance + " meters");
     //Set the value of the distance field with the calculated distance
     document.getElementById("distance").value = distance;
+    animateMovement(distance);
 }
 
 //Main function
@@ -59,3 +60,27 @@ function calculate(){
 
 //Event Listener to the button
 confirmButton.addEventListener('click',calculate);
+
+// Function to animate movement
+function animateMovement(distance) {
+    const object = document.getElementById('animatedObject');
+    const time = parseFloat(document.getElementById('time').value);
+    const velocity = parseFloat(document.getElementById('velocity').value);
+
+    const intervalTime = 50; // Intervalo de tiempo en milisegundos
+    const steps = Math.ceil(time * 1000 / intervalTime); // Número de pasos de animación
+
+    const stepDistance = distance / steps; // Distancia a mover en cada paso
+
+    let currentStep = 0;
+
+    const animationInterval = setInterval(() => {
+        if (currentStep < steps) {
+            const newPosition = (currentStep * stepDistance).toFixed(2);
+            object.style.transform = `translateX(${newPosition}px)`;
+            currentStep++;
+        } else {
+            clearInterval(animationInterval); // Detener la animación cuando se alcanza la distancia deseada
+        }
+    }, intervalTime);
+}
