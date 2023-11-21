@@ -20,6 +20,7 @@ function calculateVelocity(){
     console.log('Calculated Velocity is: ' + velocity + "m/s");
     //Set the value of the velocity field with the calculated velocity
     document.getElementById("velocity").value = velocity;
+    animateMovement(distance);
 }
 
 //Calculate Time
@@ -29,6 +30,7 @@ function calculateTime(){
     console.log('Calculated time is: ' + time + " seconds");
     //Set the value of the time field with the calculated time
     document.getElementById("time").value = time;
+    animateMovement(distance);
 }
 
 //calculate distance
@@ -67,10 +69,10 @@ function animateMovement(distance) {
     const time = parseFloat(document.getElementById('time').value);
     const velocity = parseFloat(document.getElementById('velocity').value);
 
-    const intervalTime = 50; // Intervalo de tiempo en milisegundos
-    const steps = Math.ceil(time * 1000 / intervalTime); // Número de pasos de animación
+    const intervalTime = 50; 
+    const steps = Math.ceil(time * 1000 / intervalTime); 
 
-    const stepDistance = distance / steps; // Distancia a mover en cada paso
+    const stepDistance = distance / steps; 
 
     let currentStep = 0;
 
@@ -80,7 +82,7 @@ function animateMovement(distance) {
             object.style.transform = `translateX(${newPosition}px)`;
             currentStep++;
         } else {
-            clearInterval(animationInterval); // Detener la animación cuando se alcanza la distancia deseada
+            clearInterval(animationInterval);
         }
     }, intervalTime);
 }
